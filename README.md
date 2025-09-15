@@ -51,8 +51,14 @@ Extra Material: SHAP exercise - [Compute Shapley values by hand](https://xai-tut
 
 ## Mentors
 
+- [Dr. Marcella Astrid](mailto:marcella.astrid@helmholtz-munich.de), Helmholtz Munich
 - [Dr. Lisa Borros de Andrade e Sousa](mailto:lisa.barros@helmholtz-munich.de), Helmholtz Munich
-- ...
+- [Christina Bukas](mailto:christina.bukas@helmholtz-munich.de), Helmholtz Munich
+- [Francesco Campi](mailto:francesco.campi@helmholtz-munich.de), Helmholtz Munich
+- [Dr. Donatella Cea](mailto:donatella.cea@helmholtz-munich.de), Helmholtz Munich
+- [Dr. Elisabeth Georgii](mailto:elisabeth.georgii@helmholtz-munich.de), Helmholtz Munich
+- [Serena Sritharan](mailto:serena.sritharan@helmholtz-munich.de@helmholtz-munich.de), Helmholtz Munich
+
 
 
 ## Requirements and Setup
