@@ -4,7 +4,7 @@ This 2-half-day course provides an introduction to the topic of Explainable AI (
 
 The goal of the course is to help participants understand how XAI methods can help uncover biases in the data or provide interesting insights. After a general introduction to XAI, the course goes deeper into state-of-the-art model agnostic as well as model-specific interpretation techniques. The practical hands-on sessions will help to learn about strengths and weaknesses of these standard methods used in the field.
 
-[Course Page](...)
+[Course Page](https://www.helmholtz-hida.de/en/lernen-vernetzen/data-science-course-portfolio/introduction-to-explainable-ai/)
 
 ## Venue
 The course will be fully online:  
@@ -51,14 +51,13 @@ Extra Material: SHAP exercise - [Compute Shapley values by hand](https://xai-tut
 
 ## Mentors
 
-- [Dr. Marcella Astrid](mailto:marcella.astrid@helmholtz-munich.de), Helmholtz Munich
+- [Dr. Marcella Astrid], Helmholtz Munich
 - [Dr. Lisa Borros de Andrade e Sousa](mailto:lisa.barros@helmholtz-munich.de), Helmholtz Munich
-- [Christina Bukas](mailto:christina.bukas@helmholtz-munich.de), Helmholtz Munich
-- [Francesco Campi](mailto:francesco.campi@helmholtz-munich.de), Helmholtz Munich
+- [Christina Bukas], Helmholtz Munich
+- [Francesco Campi], Helmholtz Munich
 - [Dr. Donatella Cea](mailto:donatella.cea@helmholtz-munich.de), Helmholtz Munich
-- [Dr. Elisabeth Georgii](mailto:elisabeth.georgii@helmholtz-munich.de), Helmholtz Munich
-- [Serena Sritharan](mailto:serena.sritharan@helmholtz-munich.de@helmholtz-munich.de), Helmholtz Munich
-
+- [Dr. Elisabeth Georgii], Helmholtz Munich
+- [Sabrina Benassou], Forschungszentrum Jülich
 
 
 ## Requirements and Setup
