@@ -17,7 +17,7 @@ Kenncode: 571715
 Meeting-ID: 985 6900 0505  
 Kenncode: 038195 
 
-## Schedule at a glance (TBD)
+## Schedule at a glance
 
 #### Day 1 - XAI for Random Forest
 
