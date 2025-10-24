@@ -35,7 +35,7 @@ The model predicts the class of the original image with a confidence of 0.833. W
 How do we create the dataset for the surrogate model?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-LIME creates a dataset of $n$ perturbed images by randomly deactivating superpixel regions — not necessarily one at a time, but potentially multiple regions simultaneously— following the independent Bernoulli sampling principle. Each deactivated superpixel can be replaced using its mean color, as shown in the top row of the following figure, or with another color, such as black, as in the bottom row. This allows LIME to explore how combinations of regions influence the model’s prediction.
+LIME creates a dataset of $n$ perturbed images by randomly deactivating superpixel regions — not necessarily one at a time, but potentially multiple regions simultaneously— following the independent Bernoulli sampling principle. Each deactivated superpixel can be replaced using its mean color, as shown in the top row of the following figure (`Garreau et al., 2021 <https://proceedings.mlr.press/v139/garreau21a/garreau21a.pdf>`_), or with another color, such as black, as in the bottom row. This allows LIME to explore how combinations of regions influence the model’s prediction.
 
 .. figure:: ../_figures/LIME_dataset_creation.png
 
