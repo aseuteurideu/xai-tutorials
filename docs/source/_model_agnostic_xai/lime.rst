@@ -26,7 +26,8 @@ How do we create the image perturbation?
 
 LIME segments the image into sections known as superpixels, breaking it down into $d$ subregions referred to as **interpretable fearures**. The default segmentation algorithm of LIME to produce this superpixels is the *quickshift* algorithm by `Vedaldi et. al. <https://doi.org/10.1007/978-3-540-88693-8_52>`_ However, you can choose a different segmentation algorithm available at *scikit-image*. LIME introduces perturbations to these interpretable components by modifying pixel values within each superpixel region, typically turning them gray or replacing them with the mean of all pixels in the superpixel. Each perturbed instance is then fed into the model to generate new predictions for the originally predicted class. These predictions will be the labels for the new dataset. This dataset is utilized to train LIME's linear model, helping assess the contribution of each interpretable component to the original prediction.
 
-In the image (`source <https://www.oreilly.com/library/view/explainable-ai-for/9781098119126/ch04.html>`_) below, we can see an example of the original image on the left and an overlay of the superpixels (yellow) in the middle. On the right, we can see some examples of perturbed images passed to the inference algorithm to make new predictions.
+In the image (`source <https://www.oreilly.com/library/view/explainable-ai-for/9781098119126/ch04.html>`_) below, we can see an example of the original image on the left and an overlay of the superpixels (yellow) in the middle. On the right, we can see some examples of perturbed images passed to the inference algorithm to make new predictions. 
+The model predicts the class of the original image with a confidence of 0.833. When certain superpixels are removed or grayed out, the model’s top class prediction can change. Regions that are more influential—such as in the top-right image, where the superpixels covering the parrot’s head are deactivated—cause a noticeable drop in confidence (to 0.648). In contrast, removing less important regions, as shown in the bottom-right image, results in little to no change in the predicted probability. 
 
 .. image:: https://www.oreilly.com/api/v2/epubs/9781098119126/files/assets/eaip_0424.png
     :width: 800
@@ -34,7 +35,11 @@ In the image (`source <https://www.oreilly.com/library/view/explainable-ai-for/9
 How do we create the dataset for the surrogate model?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-LIME creates the dataset from the $n$ perturbed images. For each newly generated example $x_i$, the superpixels are randomly switched on and off, and this information is encoded in a vector $z_i ∈ \{0, 1\}^d$, where each coordinate of $z_i$ corresponds to the activation :math:`z_\mathrm{i,j} = 1` or inactivation :math:`z_{i,j} = 0` of superpixel $j$. We call the $z_i$ the **interpretable features**. 
+LIME creates a dataset of $n$ perturbed images by randomly deactivating superpixel regions — not necessarily one at a time, but potentially multiple regions simultaneously— following the independent Bernoulli sampling principle. Each deactivated superpixel can be replaced using its mean color, as shown in the top row of the following figure, or with another color, such as black, as in the bottom row. This allows LIME to explore how combinations of regions influence the model’s prediction.
+
+.. figure:: ../_figures/LIME_dataset_creation.png
+
+This information is encoded in a vector $z_i ∈ \{0, 1\}^d$, where each coordinate of $z_i$ corresponds to the activation :math:`z_\mathrm{i,j} = 1` or inactivation :math:`z_{i,j} = 0` of superpixel $j$. We call the $z_i$ the **interpretable features**. 
 These perturbations are just simple binary representations of the image indicating the “presence” or “absence” of each superpixel region. Since we care about the perturbations closest to the original image, those examples with the most superpixels present are weighted more than examples with more superpixels absent. This proximity can be measured using any distance metric for images.
 
 How do we measure the change in the model prediction?
