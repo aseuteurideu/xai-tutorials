@@ -614,3 +614,80 @@ def plot_stacked_bar_chart(feature_importance, columns_to_plot=["Tissue", "GSE",
     plt.tight_layout()
     # plt.savefig(os.path.join(dir_output, f"{name}_stacked_bar_chart.pdf"), format="pdf", bbox_inches="tight")
     plt.show()
+
+
+def plot_correlation_distribution(data, name=""):
+    metadata_cols = ["sample_id", "Dataset", "GSE", "Condition", "Disease", "Tissue"]
+    gene_expression = data.drop(columns=metadata_cols)
+
+    corr_matrix = gene_expression.corr().values
+
+    upper = corr_matrix[np.triu_indices_from(corr_matrix, k=1)]
+
+    plt.figure(figsize=(6, 4))
+    plt.hist(upper, bins=50)
+    plt.title("Distribution of Gene-Gene Correlations")
+    plt.xlabel("Correlation")
+    plt.ylabel("Frequency")
+    plt.show()
+
+
+def plot_feature_importance_by_AML_cluster(obj):
+
+    # --- Aggregate + normalize ---
+    avgs = (
+        obj.data_clustering.groupby("cluster")
+        .mean(numeric_only=True)
+        .pipe(lambda df: (df - df.min()) / (df.max() - df.min()).replace(0, 1))
+        .T
+    )
+
+    # --- Sort by global importance ---
+    fi_global = obj.feature_importance_global.sort_values(ascending=False)
+    fi_local = obj.feature_importance_local.loc[fi_global.index]
+    avgs = avgs.loc[fi_global.index]
+    avgs["global_rank"] = range(1, len(avgs) + 1)
+
+    # --- Reshape ---
+    melted = (
+        avgs.reset_index()
+        .rename(columns={"index": "gene"})
+        .melt(id_vars=["gene", "global_rank"], var_name="cluster", value_name="feature_avg")
+        .merge(
+            fi_local.reset_index()
+            .rename(columns={"index": "gene"})
+            .melt(id_vars="gene", var_name="cluster", value_name="local_importance"),
+            on=["gene", "cluster"],
+        )
+    )
+
+    # --- Plot ---
+    with sns.axes_style("white"):
+        fig, ax = plt.subplots(figsize=(9, 2), dpi=100)
+
+        sns.scatterplot(
+            data=melted,
+            x="global_rank",
+            y="cluster",
+            hue="feature_avg",
+            size="local_importance",
+            palette="RdBu_r",
+            sizes=(1, 150),
+            legend=False,
+            ax=ax,
+        )
+
+        ax.set(
+            xlim=(0.5, len(fi_global) + 0.5),
+            xticks=range(1, len(fi_global) + 1),
+            xticklabels=fi_global.index,
+            xlabel=None,
+            ylim=(0.5, melted.cluster.nunique() + 0.5),
+            yticks=sorted(melted.cluster.unique()),
+            ylabel="cluster",
+        )
+
+        ax.tick_params(axis="x", rotation=90)
+
+        ax.set_aspect("auto")
+        sns.despine(left=True, bottom=True)
