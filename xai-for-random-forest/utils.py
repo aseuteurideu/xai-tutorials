@@ -632,7 +632,7 @@ def plot_correlation_distribution(data, name=""):
     plt.show()
 
 
-def plot_feature_importance_by_AML_cluster(obj):
+def plot_feature_importance_by_AML_cluster(obj, figsize=(9, 2)):
 
     # --- Aggregate + normalize ---
     avgs = (
@@ -663,7 +663,7 @@ def plot_feature_importance_by_AML_cluster(obj):
 
     # --- Plot ---
     with sns.axes_style("white"):
-        fig, ax = plt.subplots(figsize=(9, 2), dpi=100)
+        fig, ax = plt.subplots(figsize=figsize, dpi=100)
 
         sns.scatterplot(
             data=melted,
