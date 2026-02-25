@@ -5,9 +5,7 @@ This full-day course provides an introduction to the topic of Explainable AI (XA
 The goal of the course is to help participants understand how XAI methods can help uncover biases in the data or provide interesting insights. After a general introduction to XAI, the course goes deeper into state-of-the-art model agnostic as well as model-specific interpretation techniques. The practical hands-on sessions will help to learn about strengths and weaknesses of these standard methods used in the field.
 
 ## Venue
-The course will be onsite:
-
-TP Conference Center, INF 582, Heidelberg
+The course will be onsite: TP Conference Center, INF 582, Heidelberg
 
 ## Schedule at a glance
 
