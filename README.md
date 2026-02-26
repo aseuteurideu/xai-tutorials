@@ -23,6 +23,8 @@ The course will be onsite: TP Conference Center, INF 582, Heidelberg
 |13:30 - 15:30|	Hand-On Session |
 |15:30 - 16:00| Conclusions & Wrap-up |
 
+LINK TO SURVEY: https://forms.office.com/pages/responsepage.aspx?id=k-Qp4vIbp0CbhIX2wjru2CUg8imPeZhDs5ZKG7PYKGFUNVNYTE9EWEJDTzUxU1dYTzlZNDMxRVdUVy4u&route=shorturl
+
 
 ## Mentors
 
