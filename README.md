@@ -25,8 +25,6 @@ The course will be onsite: TP Conference Center, INF 582, Heidelberg
 
 LINK TO SURVEY: https://forms.office.com/pages/responsepage.aspx?id=k-Qp4vIbp0CbhIX2wjru2CUg8imPeZhDs5ZKG7PYKGFUNVNYTE9EWEJDTzUxU1dYTzlZNDMxRVdUVy4u&route=shorturl
 
-LINK TO AML CASE STUDY: https://github.com/HelmholtzAI-Consultants-Munich/XAI-Tutorials/releases/download/v1.0.0/aml_case_study.zip
-
 ## Mentors
 
 - [Dr. Lisa Borros de Andrade e Sousa](mailto:lisa.barros@helmholtz-munich.de), Helmholtz Munich
