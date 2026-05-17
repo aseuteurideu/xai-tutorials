@@ -3,6 +3,8 @@
 ############################################################
 
 import os
+import math
+import shap
 import umap
 import kmedoids
 import pandas as pd
@@ -691,3 +693,38 @@ def plot_feature_importance_by_AML_cluster(obj, figsize=(9, 2)):
 
         ax.set_aspect("auto")
         sns.despine(left=True, bottom=True)
+
+
+def plot_shap_dependence(explanation, num_cols=6):
+    # 1. Compute mean absolute SHAP values
+    mean_shap = np.abs(explanation.values).mean(axis=0)
+
+    # 2. Sort features by descending mean SHAP
+    sorted_indices = np.argsort(-mean_shap)
+    sorted_features = [explanation.feature_names[i] for i in sorted_indices]
+
+    # 3. Set up grid layout
+    n_features = len(sorted_features)
+    rows = math.ceil(n_features / num_cols)
+
+    fig, axes = plt.subplots(rows, num_cols, figsize=(num_cols * 6, rows * 4))
+    axes = axes.flatten()
+
+    # 4. Generate SHAP dependence plots in the grid
+    for i, feature in enumerate(sorted_features):
+        shap.dependence_plot(
+            ind=feature,
+            shap_values=explanation.values,
+            features=explanation.data,
+            feature_names=explanation.feature_names,
+            ax=axes[i],
+            show=False,
+        )
+        axes[i].set_title(f"Dependence: {feature}", fontsize=10)
+
+    # 5. Remove any unused subplots
+    for j in range(i + 1, len(axes)):
+        fig.delaxes(axes[j])
+
+    plt.tight_layout()
+    plt.show()
