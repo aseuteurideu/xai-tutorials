@@ -1,4 +1,4 @@
-# requirements to create the dicumentation
+# requirements to create the documentation
 Sphinx==5.0
 sphinx-book-theme==1.1.2
 sphinx-autodocgen==1.3

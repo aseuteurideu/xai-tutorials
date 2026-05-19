@@ -21,8 +21,8 @@ sys.path.insert(0, os.path.abspath('../../'))
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'XAI Tutorials'
-copyright = 'Helmholtz AI 2023'
-author = 'Donatella Cea, Lisa Barros de Andrade e Sousa, Christina Bukas, Helena Pelin, Elisabeth Georgii, Helene Hoffmann, Sebastian Starke'
+copyright = 'Helmholtz AI 2026'
+author = 'Donatella Cea, Lisa Barros de Andrade e Sousa, Christina Bukas, Marcella Astrid, Helena Pelin, Elisabeth Georgii, Helene Hoffmann, Sebastian Starke'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
