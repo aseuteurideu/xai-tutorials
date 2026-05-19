@@ -1,53 +1,87 @@
 [![test](https://github.com/HelmholtzAI-Consultants-Munich/XAI-Tutorials/actions/workflows/test_notebooks.yml/badge.svg)](https://github.com/HelmholtzAI-Consultants-Munich/XAI-Tutorials/actions/workflows/test_notebooks.yml)
 [![stars](https://img.shields.io/github/stars/HelmholtzAI-Consultants-Munich/XAI-Tutorials?logo=GitHub&color=yellow)](https://github.com/HelmholtzAI-Consultants-Munich/XAI-Tutorials/stargazers)
 
+# Tutorials for eXplainable Artificial Intelligence (XAI)
 
-# Tutorials for eXplainable Artificial Intelligence (XAI) methods
+This repository contains a collection of interactive tutorials for understanding and applying modern eXplainable Artificial Intelligence (XAI) methods to machine learning and deep learning models, including Random Forests, CNNs, and Transformers. Each tutorial is provided as a Jupyter Notebook combining short video lectures with practical hands-on exercises.
 
-This repository contains a collection of self-explanatory tutorials for different model-agnostic and model-specific XAI methods for Random Forests, CNNs and Transformers. Each tutorial comes in a Jupyter Notebook containing a short video lecture and practical exercises.
+The tutorials cover both model-agnostic and model-specific XAI methods, including SHAP, LIME, Permutation Feature Importance, Grad-CAM, Attention Maps, and Forest-Guided Clustering.
 
 The learning objectives are:
 
-- understand the importance of interpretability
-- discover the existing model-agnostic and model-specific XAI methods
-- learn how to interpret the outputs and graphs of those methods with hands-on exercises
-- learn to choose which method is suitable for a specific task
+* understand the importance of interpretability and transparency in AI
+* learn how different XAI methods work and when to use them
+* interpret explanation outputs and visualizations for different model types
+* gain hands-on experience applying XAI methods to real-world examples
 
-For using the content of this repository for an online or offline course, please open a new GitHub branch in this repository with the name of the course and then choose the content you would like to use for your course. The folders `.github`, `docs` aand `test` can be removed in the course branch as they are only needed in the main branch. To adjust the notebooks of the new branch with the new branch information, you can run the script `python update_branch_links.py` where you should modify the `NEW_BRANCH` parameter to the name of the branch you created.
 
-**List of Tutorials for Model-Agnostic Methods:**
+## 📚 Included Tutorials
 
-- Permutation Feature Importance
-- SHapley Additive exPlanations (SHAP)
-- Local Interpretable Model-Agnostic Explanations (LIME)
+The repository includes tutorials for both **model-agnostic** and **model-specific** XAI methods across tabular, image, and transformer-based models.
 
-**List of Tutorials for Model-Specific Methods:**
+### Model-Agnostic Methods
 
-- Forest-Guided Clustering
-- Grad-CAM
-- Attention Maps
+Methods that can be applied independently of the underlying machine learning model:
 
-## Requirements and Setup
+* Permutation Feature Importance
+* SHapley Additive exPlanations (SHAP)
+* Local Interpretable Model-Agnostic Explanations (LIME)
 
-It is possible to either create an environment and install all the necessary packages locally (using the requirements.txt file) or to execute the notebooks on the browser, by clicking the 'Open in Colab' button. This second option doesn't require any further installation, but the user must have access to a Google account.
+### Model-Specific Methods
 
-If you prefer to run the notebooks on your device, create a virtual environment using the requirements.txt file:
-```
+Methods designed for interpreting specific model architectures such as Random Forests, CNNs, and Transformers:
+
+* Forest-Guided Clustering
+* Grad-CAM
+* Attention Maps
+
+## 🚀 Requirements and Setup
+
+The notebooks can either be executed locally or directly in the browser using the **Open in Colab** button. Running the notebooks in Colab does not require any installation, but a Google account is needed.
+
+To run the notebooks locally, create a virtual environment and install the required packages:
+
+```bash id="m4c6p2"
 conda create -n xai python=3.12
 conda activate xai
+
 pip install -r requirements_xai-for-cnn.txt
 pip install -r requirements_xai-for-random-forest.txt
 pip install -r requirements_xai-for-transformer.txt
 ```
 
-Once your environment is created, clone the repo using the following command:
+Clone the repository:
 
-```
+```bash id="k9x2tw"
 git clone https://github.com/HelmholtzAI-Consultants-Munich/XAI-Tutorials.git
 ```
 
-## Contributions
+## 🎓 Using This Repository for Courses
 
-Comments and input are very welcome! If you have a suggestion or think something should be changed, please open an issue or submit a pull request. 
+This repository can easily be adapted for online or in-person teaching.
+For course-specific material, we recommend creating a dedicated GitHub branch:
 
-All content is publicly available under the Creative Commons Attribution License: https://creativecommons.org/licenses/by/4.0/
+```bash id="v8k3pm"
+git checkout -b <course-name>
+```
+
+You can then customize the notebooks and select only the material relevant for your course.
+
+The folders `.github` and `docs` are only required for maintaining the main repository and can optionally be removed in course branches.
+
+To automatically update notebook links and branch references, first set the `NEW_BRANCH` variable inside `update_branch_links.py` to the name of your course branch, then run:
+
+```bash id="q1m7dx"
+python update_branch_links.py
+```
+
+## 🤝 Contributions
+
+Comments, suggestions, and contributions are very welcome!
+If you have ideas for improvements or want to report an issue, feel free to open an issue or submit a pull request.
+
+## 📄 License
+
+All content is publicly available under the Creative Commons Attribution 4.0 License:
+
+[https://creativecommons.org/licenses/by/4.0/](https://creativecommons.org/licenses/by/4.0/)
