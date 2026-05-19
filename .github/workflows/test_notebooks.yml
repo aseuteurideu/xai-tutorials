@@ -26,9 +26,9 @@ jobs:
             path: xai-for-random-forest
             requirements: requirements_xai-for-random-forest.txt
 
-          - name: transformer
-            path: xai-for-transformer
-            requirements: requirements_xai-for-transformer.txt
+#          - name: transformer
+#            path: xai-for-transformer
+#            requirements: requirements_xai-for-transformer.txt
 
     steps:
       - uses: actions/checkout@v4
